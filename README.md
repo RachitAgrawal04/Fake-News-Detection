@@ -17,12 +17,6 @@ wants to contribute in ensuring peace and sanity by
 identifying which is fake and real news through the use of
 Machine Learning Concepts.
 
-## The Team 😀
-All of us are CS undergrads at `IIIT Delhi`
-- Vibhor Agarwal
-- Anshak Goel
-- Sahil Goyal
-- Deeptorshi Mondal
 
 ## Project Report 📙📙
 Here find the most detailed [`Report`](https://drive.google.com/open?id=1yBlkQaVJxG0riSf9CZx9cdPofywFHLts&authuser=vibhor20349%40iiitd.ac.in&usp=drive_fs) and [`Presentation`](https://www.canva.com/design/DAFTuA_cjDY/3njYoH-d8q1PmnpqMOQZvQ/view?utm_content=DAFTuA_cjDY&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent) you will ever get. It has even the most minute details of our project. They contain our motivation, methodology, results and future work.
@@ -168,7 +162,7 @@ such as SVM, Linear Regression, Decision Trees, Naïve
 Bayes and K-NN model by professors at Dhaka
 University. XG Boost and Random Forrest were the new
 algorithms which were implemented by professors at
-LPU. The paper made by Harsh Khatter argued about
+LPU. The paper made by Rachit agrawal argued about
 SVM being used to solve the problem and proposed a
 model combining of News Aggregator, Authenticator
 and Suggestion recommendation. Further deep learning
