@@ -1,4 +1,5 @@
 # Fake News Detection using NLP, Machine Learning and Deep Learning.
+<!-- markdownlint-disable -->
 ## Motivation
 In the recent years of information transfer we have seen
 how major shortcomings in the field of technology have
@@ -36,9 +37,40 @@ The following steps need to be perfomed :
 5. We use `Logistic Regression` and `SVM` for fake news classification.
 6. We use `Artificial Neural Networks` for fake news classification
 
+## 2025 Refresh – Modern Training Pipeline
 
-### File Structure  
-- `FakeNewsDetectionModel.ipynb` -> Jupyter Notebook with ML Model  
+To keep the repository relevant, a lightweight but extensible training stack now lives in `src/`. It loads the official LIAR splits, engineers joint text + metadata features, and feeds them through configurable scikit-learn pipelines (logistic regression, linear SVM, or SGD). The CLI persists both metrics and the fitted model so you can benchmark future ideas (DistilBERT, adapters, RAG, etc.) against the classical baseline.
+
+### Quickstart
+
+1. **Install dependencies** (uses the new `pyproject.toml`):
+
+   ```bash
+   pip install -e .
+   ```
+
+2. **Train & evaluate** (adjust arguments as desired):
+
+   ```bash
+   python -m src.train --data-dir . --classifier logreg --max-features 20000 --ngram-max 2 --output-dir artifacts
+   ```
+
+3. Metrics are written to `artifacts/logreg_metrics.json` and the serialized pipeline to `artifacts/logreg_pipeline.joblib`.
+
+### Current Baseline (multi-class LIAR)
+
+| Split | Accuracy | Macro F1 |
+| --- | --- | --- |
+| Train | 0.83 | 0.82 |
+| Validation | 0.28 | 0.29 |
+| Test | 0.26 | 0.26 |
+
+The LIAR benchmark remains challenging for purely lexical models; the refreshed structure makes it easy to swap in contextual encoders, prompt-based evaluators, or debiased feature sets while keeping results reproducible.
+
+
+### File Structure
+
+- `FakeNewsDetectionModel.ipynb` -> Jupyter Notebook with ML Model
 - `Validation_date.tsv` , `test_data.tsv` and `train_data.tsv`  -> Dataset
 - `Project Report` - Report specifying the project
 - `Project Presentation.pptx` - Project Presentation for Project Explanation.
@@ -181,7 +213,7 @@ into two parts by professors at Dhaka University were
 one analysed before the neural networks while the other
 talked about after that. The best accuracy was reported by
 Naïve Bayes with 94 percent after using n-gram (bigram
-TF-IDF) features. For the paper by Harsh Khatter it
+TF-IDF) features. For the paper by Rachit agrawal it
 reported Naïve Bayes to be the best with a accuracy of
 93.5 percent and the paper by professors at LPU argued
 about XG Boost being the best. In conclusion all papers
