@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Fake News Detector</h1>
+            <p class="subtitle">AI-powered fact checking using Machine Learning</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea 
+                    id="newsText" 
+                    placeholder="Paste or type a news statement here to check if it's real or fake..."
+                    rows="8"
+                ></textarea>
+                
+                <button id="analyzeBtn" onclick="analyzeNews()">
+                    <span id="btnText">Analyze Statement</span>
+                    <span id="btnLoader" class="loader" style="display: none;"></span>
+                </button>
+            </div>
+
+            <div id="resultSection" class="result-section" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2>Analysis Result</h2>
+                    </div>
+                    
+                    <div id="resultContent" class="result-content">
+                        <div class="verdict" id="verdictBox">
+                            <span class="verdict-label" id="verdictLabel">REAL</span>
+                            <span class="confidence" id="confidenceText">85% Confidence</span>
+                        </div>
+                        
+                        <div class="probability-bars">
+                            <div class="prob-item">
+                                <div class="prob-label">
+                                    <span class="label-text">Fake</span>
+                                    <span class="label-value" id="fakeProb">15%</span>
+                                </div>
+                                <div class="prob-bar">
+                                    <div class="prob-fill fake" id="fakeBar" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="prob-item">
+                                <div class="prob-label">
+                                    <span class="label-text">Real</span>
+                                    <span class="label-value" id="realProb">85%</span>
+                                </div>
+                                <div class="prob-bar">
+                                    <div class="prob-fill real" id="realBar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display: none;">
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Machine Learning (Gaussian Naive Bayes)</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

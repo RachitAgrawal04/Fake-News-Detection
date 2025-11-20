@@ -1,39 +1,56 @@
-# Fake News Detection (Notebook-Only)
+# Fake News Detector
 
-This repo intentionally keeps just the pieces needed to re-run the original notebook experiment. There are no extra scripts, pipelines, or presentations anymore.
+AI-powered fake news detection using Machine Learning (Gaussian Naive Bayes classifier).
 
-## What is here?
+## Quick Start
 
-- `FakeNewsDetectionModel.ipynb`: the full exploratory workflow.
-- `train_data.tsv`, `Validation_data.tsv`, `test_data.tsv`: the raw datasets the notebook expects.
-- `pyproject.toml`: dependency list so you can install the same packages.
-
-That’s all.
-
-## Quickstart
-
+1. **Install dependencies:**
 ```bash
-pip install pipx
-pipx runpip uv pip install --editable .
-pipx run uv pip install -e .
+pip install -r requirements.txt
 ```
 
-Then open the notebook (VS Code + Jupyter or `jupyter lab`). If you prefer using `pip` directly:
-
+2. **Run the app:**
 ```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -e .
+python app.py
 ```
 
-## Running the notebook
+3. **Open in browser:**
+```
+http://localhost:5000
+```
 
-1. Launch Jupyter (VS Code notebook UI or `jupyter lab`).
-2. Select the `.venv` interpreter.
-3. Execute cells top to bottom. The datasets live in the repo root so paths resolve as written.
+## Features
 
-## Notes
+- 🔍 Real-time fake news detection
+- 🎯 ~60% accuracy using Gaussian Naive Bayes
+- 🎨 Modern, responsive web UI
+- 📊 Confidence scores and probability breakdown
 
-- No automatic training scripts or saved models remain.
-- Keep the TSV files in place; the notebook reads them by relative path.
-- Add your own experiments in new notebooks if you want, but the baseline stays minimal.
+## API Usage
+
+**POST /predict**
+```json
+{
+  "text": "Your news statement here"
+}
+```
+
+**Response:**
+```json
+{
+  "prediction": "Real/True",
+  "class": 1,
+  "confidence": "85.32%",
+  "preprocessed_text": "..."
+}
+```
+
+## Dataset
+
+LIAR dataset with 12,788 political statements labeled by PolitiFact.
+
+## Model
+
+- **Algorithm:** Gaussian Naive Bayes
+- **Features:** Bag of Words (2000 max features)
+- **Preprocessing:** Lowercase, regex cleaning, tokenization, lemmatization, stopword removal
